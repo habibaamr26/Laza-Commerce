@@ -40,10 +40,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
         emit(RegisterSuccessState(data: data));
       },
       onError: (error) {
-        print("***********************************************");
-        print(error.errors.toString());
-        print("***********************************************");
-        emit(RegisterFailureState(errorMessage: error.message));
+        emit(RegisterFailureState(error: error));
       },
     );
   }

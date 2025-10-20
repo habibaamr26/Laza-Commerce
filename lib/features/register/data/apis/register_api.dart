@@ -9,7 +9,6 @@ part 'register_api.g.dart';
 abstract class RegisterApi{
 
  factory RegisterApi(Dio dio, {String baseUrl}) = _RegisterApi;
-
  @POST( ApiConstants.register)
   Future<ResponseModel> register(@Body() RequestModel model);
 

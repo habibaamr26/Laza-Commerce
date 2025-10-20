@@ -1,4 +1,5 @@
 
+import 'package:e_commerce/core/networking/api_error_model.dart';
 import 'package:e_commerce/features/register/data/models/response_model.dart';
 
 abstract class RegisterStates {}
@@ -13,6 +14,6 @@ class RegisterSuccessState extends RegisterStates {
 }
 
 class RegisterFailureState extends RegisterStates {
-  late String errorMessage;
-  RegisterFailureState({required this.errorMessage});
+  late ApiErrorModel error;
+  RegisterFailureState({required this.error});
 }

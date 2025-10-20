@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'core/di/dependancy_injection.dart';
+import 'core/helper/cash_helper.dart';
 import 'core/routs/route.dart';
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   appInjection();
+  Caching.init();
   runApp(const MyApp());
 }
 

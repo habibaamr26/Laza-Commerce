@@ -1,18 +1,19 @@
-
-
-import 'package:e_commerce/core/widgets/remember_me_switch.dart';
+import 'package:e_commerce/features/login/presentation/cubit/login_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constants/app_text_style.dart';
 import '../../../../core/widgets/custom_text_field.dart';
-import '../cubit/cubit.dart';
-class RegisterForm extends StatelessWidget {
-  const RegisterForm({super.key});
+import '../../../../core/widgets/remember_me_switch.dart';
+
+class LoginForm extends StatelessWidget {
+
+
+  LoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<RegisterCubit>();
+     final cubit = context.read<LoginCubit>();
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(20),
@@ -26,7 +27,7 @@ class RegisterForm extends StatelessWidget {
             CustomTextField(
               label: 'Username',
               hint: 'habiba@example.com',
-              controller: cubit.emailController,
+              controller: cubit.passwordController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter email';
@@ -41,7 +42,7 @@ class RegisterForm extends StatelessWidget {
             CustomTextField(
               label: 'Password',
               isPassword: true,
-              controller: cubit.passwordController,
+              controller: cubit.emailController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter password';
@@ -52,29 +53,17 @@ class RegisterForm extends StatelessWidget {
                 return null;
               },
             ),
-            const SizedBox(height: 10),
-            CustomTextField(
-              label: 'First Name',
-              controller: cubit.firstNameController,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your First Name';
-                }
-                return null;
-              },
+            const SizedBox(height: 30),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                "Forget Password?",
+                style: AppTextStyles.bodyMedium.copyWith(
+                  color: const Color(0xFFEA4335),
+                ),
+              ),
             ),
-            const SizedBox(height: 10),
-            CustomTextField(
-              label: 'Last Name',
-              controller: cubit.lastNameController,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your Last Name';
-                }
-                return null;
-              },
-            ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
             const RememberMeSwitch(),
           ],
         ),

@@ -1,11 +1,10 @@
 
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
 
 
-PreferredSizeWidget registerHeader()
+PreferredSizeWidget header()
 {
   return AppBar(
     backgroundColor: Colors.transparent,

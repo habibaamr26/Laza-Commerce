@@ -4,15 +4,15 @@ import '../constants/app_colors.dart';
 import '../constants/app_text_style.dart';
 
 class CustomButton extends StatelessWidget {
-  final String text;
-  final VoidCallback onPressed;
+  final Widget child;
+  final void Function()? onPressed;
   final Color? backgroundColor;
   final Color? textColor;
   final Widget? icon;
 
   const CustomButton({
     Key? key,
-    required this.text,
+    required this.child,
     required this.onPressed,
     this.backgroundColor,
     this.textColor,
@@ -29,26 +29,20 @@ class CustomButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor ?? AppColors.primary,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.zero,
           ),
           elevation: 0,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (icon != null) ...[
-              icon!,
-              const SizedBox(width: 10),
-            ],
-            Text(
-              text,
-              style: AppTextStyles.buttonText.copyWith(
-                color: textColor ?? AppColors.white,
-              ),
-            ),
-          ],
-        ),
+        child: child,
       ),
     );
   }
 }
+
+
+/*Text(
+          text,
+          style: AppTextStyles.buttonText.copyWith(
+            color: textColor ?? AppColors.white,
+          ),
+        ),*/

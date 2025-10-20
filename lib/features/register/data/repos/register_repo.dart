@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 
 import '../../../../core/networking/result.dart';
 import '../apis/register_api.dart';
